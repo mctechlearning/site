@@ -3,7 +3,8 @@ import {NextRequest, NextResponse} from 'next/server';
 import {cookies} from 'next/headers';
 
 export async function GET() {
-  const langflowUrl = cookies().get('langflowUrl')?.value;
+  const cookieStore = cookies();
+  const langflowUrl = cookieStore.get('langflowUrl')?.value;
   if (langflowUrl) {
     return NextResponse.json({langflowUrl});
   }
